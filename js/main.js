@@ -17,6 +17,9 @@ let init = function () {
   );
   camera.position.z = 5;
 
+  // create a cube
+  createCube();
+
   // create the renderer
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
