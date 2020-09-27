@@ -24,11 +24,7 @@ let init = function () {
   let axes = new THREE.AxesHelper(15);
   scene.add(axes);
 
-  // create a cube
-  // createCube();
-  // create a cube
-  createSphere();
-  createTorus();
+  createSaturn();
 
   // create the renderer
   renderer = new THREE.WebGLRenderer();
@@ -39,13 +35,8 @@ let init = function () {
 
 // main animation loop - calls 50-60 in a second.
 let mainLoop = function () {
-  // moving a cube
-  // cube.rotation.y += add;
-  // sphere.rotation.x += add;
-  sphere.rotation.y += add;
-  torus.rotation.x += add;
-  torus.rotation.y += add;
-  torus.rotation.z += add;
+  camera.position.y += add;
+  if (camera.position.y >= 5 || camera.position.y <= -5) add *= -1;
 
   renderer.render(scene, camera);
   requestAnimationFrame(mainLoop);
