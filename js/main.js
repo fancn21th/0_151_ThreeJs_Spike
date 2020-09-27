@@ -1,5 +1,5 @@
 let scene, camera, renderer;
-let add = 0.1;
+let add = 0.01;
 
 // set up the environment -
 // initialize scene, camera, objects and renderer
@@ -28,6 +28,7 @@ let init = function () {
   // createCube();
   // create a cube
   createSphere();
+  createTorus();
 
   // create the renderer
   renderer = new THREE.WebGLRenderer();
@@ -40,6 +41,11 @@ let init = function () {
 let mainLoop = function () {
   // moving a cube
   // cube.rotation.y += add;
+  // sphere.rotation.x += add;
+  sphere.rotation.y += add;
+  torus.rotation.x += add;
+  torus.rotation.y += add;
+  torus.rotation.z += add;
 
   renderer.render(scene, camera);
   requestAnimationFrame(mainLoop);
