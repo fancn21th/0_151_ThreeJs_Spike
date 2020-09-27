@@ -1,4 +1,5 @@
 let scene, camera, renderer;
+let add = 0.1;
 
 // set up the environment -
 // initialize scene, camera, objects and renderer
@@ -15,7 +16,13 @@ let init = function () {
     1,
     1000
   );
-  camera.position.z = 5;
+  camera.position.x = 1;
+  camera.position.y = 1;
+  camera.position.z = 10;
+
+  // axes helper
+  let axes = new THREE.AxesHelper(5);
+  scene.add(axes);
 
   // create a cube
   createCube();
@@ -29,7 +36,9 @@ let init = function () {
 
 // main animation loop - calls 50-60 in a second.
 let mainLoop = function () {
-  console.log("Hello");
+  // moving a cube
+  cube.rotation.y += add;
+
   renderer.render(scene, camera);
   requestAnimationFrame(mainLoop);
 };
