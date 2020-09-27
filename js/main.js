@@ -18,14 +18,16 @@ let init = function () {
   );
   camera.position.x = 1;
   camera.position.y = 1;
-  camera.position.z = 10;
+  camera.position.z = 30;
 
   // axes helper
-  let axes = new THREE.AxesHelper(5);
+  let axes = new THREE.AxesHelper(15);
   scene.add(axes);
 
   // create a cube
-  createCube();
+  // createCube();
+  // create a cube
+  createSphere();
 
   // create the renderer
   renderer = new THREE.WebGLRenderer();
@@ -37,7 +39,7 @@ let init = function () {
 // main animation loop - calls 50-60 in a second.
 let mainLoop = function () {
   // moving a cube
-  cube.rotation.y += add;
+  // cube.rotation.y += add;
 
   renderer.render(scene, camera);
   requestAnimationFrame(mainLoop);
