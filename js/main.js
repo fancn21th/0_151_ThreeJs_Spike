@@ -18,13 +18,11 @@ let init = function () {
   );
   camera.position.x = 1;
   camera.position.y = 1;
-  camera.position.z = 30;
+  camera.position.z = 10;
 
   // axes helper
   let axes = new THREE.AxesHelper(15);
   scene.add(axes);
-
-  createSaturn();
 
   // create the renderer
   renderer = new THREE.WebGLRenderer();
@@ -35,9 +33,6 @@ let init = function () {
 
 // main animation loop - calls 50-60 in a second.
 let mainLoop = function () {
-  camera.position.y += add;
-  if (camera.position.y >= 5 || camera.position.y <= -5) add *= -1;
-
   renderer.render(scene, camera);
   requestAnimationFrame(mainLoop);
 };
