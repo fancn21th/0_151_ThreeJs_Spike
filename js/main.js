@@ -6,10 +6,9 @@ let add = 0.01;
 let init = function () {
   // create the scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xababab);
+  scene.background = new THREE.Color(0x00000);
 
   // create an locate the camera
-
   camera = new THREE.PerspectiveCamera(
     30,
     window.innerWidth / window.innerHeight,
@@ -29,6 +28,13 @@ let init = function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   document.body.appendChild(renderer.domElement);
+
+  // resize
+  window.addEventListener("resize", () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
 };
 
 // main animation loop - calls 50-60 in a second.
